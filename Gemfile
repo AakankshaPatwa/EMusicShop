@@ -28,7 +28,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
+
+gem 'rmagick'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -39,11 +41,14 @@ gem 'devise', '~>4.8', '>=4.8.1'
 gem 'bulma-rails', '~> 0.6.1'
 gem 'simple_form'
 gem 'carrierwave', '~> 2.2.2'
-
+gem 'gravatar_image_tag'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  gem 'guard'
+  gem 'guard-livereload'
 end
 
 group :development do

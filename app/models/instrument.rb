@@ -1,5 +1,6 @@
 class Instrument < ApplicationRecord
 	# mount_uploader :image, ImageUploader
+	has_one_attached :image
 	serialize :image, JSON
 	belongs_to :user
 
