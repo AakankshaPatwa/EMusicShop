@@ -1,5 +1,5 @@
 <% content_for :header do %>
-<section class="hero is-warning">
+<section class="hero is-info">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
@@ -12,11 +12,9 @@
 
 <div class="instrument-index-grid pt4">
   <% @instruments.each do |instrument| %> 
-
     <div class="instrument border-light">
       <div class="instrument-thumb">
-     
-        
+          
       <%= image_tag instrument.image if instrument.image.attached? %>
 
     <%#  <%= link_to image_tag(instrument.image_url(:thumb)), instrument %>
@@ -27,7 +25,6 @@
         </div>
       <% end %>
       </div>
-
 
     <div class="pa3">
 
