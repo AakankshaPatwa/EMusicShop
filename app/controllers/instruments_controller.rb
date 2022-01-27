@@ -21,7 +21,8 @@ class InstrumentsController < ApplicationController
 
     respond_to do |format|
       if @instrument.save
-        PostMailer.with(user: current_user, post: @post).post_created.deliver_later
+        InstrumentMailer.with(user: current_user, instrument: @instrument).instrument_created.deliver_later
+
         format.html { redirect_to instrument_url(@instrument), notice: "Instrument was successfully created." }
         format.json { render :show, status: :created, location: @instrument }
       else
