@@ -14,6 +14,9 @@ class InstrumentsController < ApplicationController
   end
 
   def edit
+    @instrument = current_user.instruments.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to intruments_path, notice: "You cannot edit this instrument."
   end
 
   def create
