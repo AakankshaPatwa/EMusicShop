@@ -5,10 +5,11 @@
     <%= csrf_meta_tags %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
-  </head>
+   </head>
 
   <body class="<%= yield (:body_class) %>">
     <% if flash[:notice] %>
@@ -21,7 +22,8 @@
       <p class="alert"><%= alert %></p>
     </div>
     <% end %>
-     <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+
+    <nav class="navbar is-info" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <%= link_to root_path, class:"navbar-item" do %>
           <h1 class="title is-5">EMusic Shop</h1>
@@ -77,6 +79,208 @@
     <%= yield %>
 
   </div>
+ 
+<!doctype html>
+  <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title></title>
+  </head>
+  <body>
+  
+  <!-- blogs -->
+    <section id = "offers" class = "py-5">
+        <div class = "container">
+            <div class = "row d-flex align-items-center justify-content-center text-center justify-content-lg-start text-lg-start">
+                <div class = "offers-content">
+                    <span class = "text-black">Discount Up To 40%</span>
+                    <h2 class = "mt-2 mb-4 text-black">Grand Sale Offer!</h2>
+                    <a href = "#" class = "btn">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of blogs -->
+
+     <!-- blogs -->
+    <section id = "blogs" class = "py-5">
+        <div class = "container">
+            <div class = "title text-center py-5">
+                <h2 class = "position-relative d-inline-block">Our Latest Blog</h2>
+            </div>
+
+            <div class = "row g-3">
+                <div class = "card border-0 col-md-6 col-lg-4 bg-transparent my-3">
+                    <%= image_tag ("blog_1.jpg") %>
+                    <div class = "card-body px-0">
+                        <h4 class = "card-title">Lorem ipsum, dolor sit amet consectetur adipisicing</h4>
+                        <p class = "card-text mt-3 text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur repudiandae nostrum dolorem molestias odio. Sit fugit adipisci omnis quia itaque ratione iusto sapiente reiciendis, numquam officiis aliquid ipsam fuga.</p>
+                        <p class = "card-text">
+                            <small class = "text-muted">
+                                <span class = "fw-bold">Author: </span>John Doe
+                            </small>
+                        </p>
+                      
+                    </div>
+                </div>
+
+                <div class = "card border-0 col-md-6 col-lg-4 bg-transparent my-3">
+                     <%= image_tag ("blog_2.jpg") %>
+                    <div class = "card-body px-0">
+                        <h4 class = "card-title">Lorem ipsum, dolor sit amet consectetur adipisicing</h4>
+                        <p class = "card-text mt-3 text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur repudiandae nostrum dolorem molestias odio. Sit fugit adipisci omnis quia itaque ratione iusto sapiente reiciendis, numquam officiis aliquid ipsam fuga.</p>
+                        <p class = "card-text">
+                            <small class = "text-muted">
+                                <span class = "fw-bold">Author: </span>John Doe
+                            </small>
+                        </p>
+                        
+                    </div>
+                </div>
+
+                <div class = "card border-0 col-md-6 col-lg-4 bg-transparent my-3">
+                    <%= image_tag ("blog_3.jpg") %>
+                    <div class = "card-body px-0">
+                        <h4 class = "card-title">Lorem ipsum, dolor sit amet consectetur adipisicing</h4>
+                        <p class = "card-text mt-3 text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur repudiandae nostrum dolorem molestias odio. Sit fugit adipisci omnis quia itaque ratione iusto sapiente reiciendis, numquam officiis aliquid ipsam fuga.</p>
+                        <p class = "card-text">
+                            <small class = "text-muted">
+                                <span class = "fw-bold">Author: </span>John Doe
+                            </small>
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of blogs -->
+
+        <!-- about us -->
+    <section id = "about" class = "py-5">
+        <div class = "container">
+            <div class = "row gy-lg-5 align-items-center">
+                <div class = "col-lg-6 order-lg-1 text-center text-lg-start">
+                    <div class = "title pt-3 pb-5">
+                        <h2 class = "position-relative d-inline-block ms-4">About Us</h2>
+                    </div>
+                    <p class = "lead text-muted">EMusic shop has been on the cutting edge of innovation, and that is what we provide to our customers</p>
+                    <p>Music has been a part of human life since times immemorial. It is not just an activity that involves an individual and a set of musical instruments. It is, instead, a medium that helps express the most profound human emotions. The company has set up the Emusic online store in India, where individuals can explore the entire range of musical instruments online.
+                    </p>
+                </div>
+                <div class = "col-lg-6 order-lg-0">
+                    <%= image_tag ("blog_3.jpg") %>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of about us -->
+
+      <!-- footer -->
+    <footer class = "bg-dark py-5">
+        <div class = "container">
+            <div class = "row text-white g-4">
+                <div class = "col-md-6 col-lg-3">
+                    <a class = "text-uppercase text-decoration-none brand text-white" href = "index.html">EMusic</a>
+                    <p class = "text-white text-muted mt-3">EMusic Shop India has an online listing of musical instruments suited for kids, young adults, professionals, audiophiles, and individuals wanting to explore sophisticated home audio solutions.</p>
+                </div>
+
+                <div class = "col-md-6 col-lg-3">
+                    <h5 class = "fw-light">Links</h5>
+                    <ul class = "list-unstyled">
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none text-muted">
+                                <i class = "fas fa-chevron-right me-1"></i> Home
+                            </a>
+                        </li>
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none text-muted">
+                                <i class = "fas fa-chevron-right me-1"></i> Collection
+                            </a>
+                        </li>
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none text-muted">
+                                <i class = "fas fa-chevron-right me-1"></i> Blogs
+                            </a>
+                        </li>
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none text-muted">
+                                <i class = "fas fa-chevron-right me-1"></i> About Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class = "col-md-6 col-lg-3">
+                    <h5 class = "fw-light mb-3">Contact Us</h5>
+                    <div class = "d-flex justify-content-start align-items-start my-2 text-muted">
+                        <span class = "me-3">
+                            <i class = "fas fa-map-marked-alt"></i>
+                        </span>
+                        <span class = "fw-light">
+                            Madhya pradesh, INDIA
+                        </span>
+                    </div>
+                    <div class = "d-flex justify-content-start align-items-start my-2 text-muted">
+                        <span class = "me-3">
+                            <i class = "fas fa-envelope"></i>
+                        </span>
+                        <span class = "fw-light">
+                            emusic.support@gmail.com
+                        </span>
+                    </div>
+                    <div class = "d-flex justify-content-start align-items-start my-2 text-muted">
+                        <span class = "me-3">
+                            <i class = "fas fa-phone-alt"></i>
+                        </span>
+                        <span class = "fw-light">
+                            +9111 2222 333
+                        </span>
+                    </div>
+                </div>
+
+                <div class = "col-md-6 col-lg-3">
+                    <h5 class = "fw-light mb-3">Follow Us</h5>
+                    <div>
+                        <ul class = "list-unstyled d-flex">
+                            <li>
+                                <a href = "#" class = "text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class = "fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href = "#" class = "text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class = "fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href = "#" class = "text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class = "fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href = "#" class = "text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class = "fab fa-pinterest"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end of footer -->
+
+
+  </body>
+</html>
+  
 
   </body>
 </html>
