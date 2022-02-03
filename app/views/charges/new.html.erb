@@ -11,14 +11,10 @@
 	</article>
 
 	<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"	
-		data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+		data-key="<%= Rails.application.credentials[:stripe][:public] %>"
 		data-description="Monthly subscription"
 		data-amount="500"
 		data-locale="auto"></script>
 <% end %>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		Stripe.setPublishableKey("<%= Rails.application.secrets.stripe_publishable_key %>");
-  });
-</script>
+
