@@ -26,9 +26,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'stripe'
+# gem 'stripe'
 gem 'pay'
 gem 'dotenv-rails', :groups => [:development, :test]
+
+gem 'stripe-rails'
+gem 'jquery-rails'
+gem 'popper_js'
+gem 'tether-rails'
 
 gem 'rails_admin'
 # Use ActiveStorage variant

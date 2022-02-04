@@ -1,8 +1,15 @@
-<h1>Instrument#instrument_created</h1>
-
-<%= @user.email %> create <%= @instrument.title %>
-
-<br>
-
-<%= image_tag attachments['ruby2.png'].url, alt: 'My Photo', width: 100 %>
-<br>
+ <html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>You Created a New Instrument Successfully <%= @user.email %>!</p>
+    <p>
+    Instrument details<br>
+    --------------------------
+    </p>
+    <p>Title: <%= @instrument.title%></p>
+    <p>Model: <%= @instrument.model %></p>
+    <p>Price: <%= @instrument.price %></p>
+  </body>
+</html>

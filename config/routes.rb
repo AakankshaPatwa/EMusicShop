@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/home'
+  get 'messages/create'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :charges, only: [:new, :create]
   resources :line_items
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
     registrations: 'registrations'
   }
   root 'instruments#index'
+
+  post 'messages', to: 'messages#create'
 
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
