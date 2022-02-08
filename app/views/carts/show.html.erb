@@ -6,6 +6,7 @@
 <div class="keep-shopping pv1 mt4 has-text-right">
   <%= link_to 'Keep Shopping', instruments_path, class: 'button is-warning' %>
 </div>
+
 <div class="buy-now pv1 mt4 has-text-right">
   <%= link_to 'Buy Now', new_charge_path, class: 'button is-success' %>
 </div>
@@ -22,5 +23,8 @@
         <span class="f5 has-text-grey">Total:</span> <%= number_to_currency(@cart.total_price) %>
       </h4>
     </div>
+  </div>
+  <div>
+    <%= render 'payment' %>
   </div>
 </section>

@@ -3,6 +3,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
+    <center>
     <p>You Created a New Instrument Successfully <%= @user.email %>!</p>
     <p>
     Instrument details<br>
@@ -11,5 +12,7 @@
     <p>Title: <%= @instrument.title%></p>
     <p>Model: <%= @instrument.model %></p>
     <p>Price: <%= @instrument.price %></p>
+    <%= image_tag attachments['ruby2.png'].url, alt: 'my pic' %>
+    </center>
   </body>
 </html>

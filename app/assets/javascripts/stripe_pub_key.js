@@ -1,3 +1,0 @@
-<script>
-  Stripe.setPublishableKey('pk_test_51KLM1sSFDNiRd0TlTMPU9a3160W8AOW6LBUIzTVtXNr5drMa2jDg0lX1jXGTuwgVUatP74EH6Nw8vn6AptMCemrp00T6dJj7p8');
-</script>

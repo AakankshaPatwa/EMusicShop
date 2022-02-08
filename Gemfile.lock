@@ -112,6 +112,8 @@ GEM
     eventmachine (1.2.7)
     execjs (2.8.1)
     ffi (1.15.5)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     formatador (0.3.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -296,10 +298,6 @@ GEM
     sqlite3 (1.4.2)
     ssrf_filter (1.0.7)
     stripe (5.43.0)
-    stripe-rails (2.3.3)
-      rails (>= 5.1)
-      responders
-      stripe (>= 3.15.0)
     temple (0.8.2)
     tether-rails (1.4.0)
       rails (>= 3.1)
@@ -339,6 +337,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise (~> 4.8, >= 4.8.1)
   dotenv-rails
+  figaro
   gravatar_image_tag
   guard
   guard-livereload
@@ -359,7 +358,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
-  stripe-rails
+  stripe
   tether-rails
   turbolinks (~> 5)
   tzinfo-data
