@@ -22,28 +22,29 @@ class InstrumentsController < ApplicationController
   def create
     @instrument = current_user.instruments.build(instrument_params)
 
-    token = params[:stripeToken]
-    instrument_brand = params[:brand]
-    instrument_title = params[:title]
-    card_brand = params[:user][:card_brand]
-    card_exp_month = params[:user][:card_exp_month]
-    card_exp_year = params[:user][:card_exp_year]
-    card_last4 = params[:user][:card_last4]
+    # token = params[:stripeToken]
+    # instrument_brand = params[:brand]
+    # instrument_title = params[:title]
+    # #error
+    # card_brand = params[:user][:card_brand]
+    # card_exp_month = params[:user][:card_exp_month]
+    # card_exp_year = params[:user][:card_exp_year]
+    # card_last4 = params[:user][:card_last4]
 
-    charge = Stripe::Charge.create(
-      :amount => 30000,
-      :currency => "usd",
-      :description => instrument_brand,
-      :statement_descriptor => instrument_title,
-      :source => token
-    )
+    # charge = Stripe::Charge.create(
+    #   :amount => 30000,
+    #   :currency => "usd",
+    #   :description => instrument_brand,
+    #   :statement_descriptor => instrument_title,
+    #   :source => token
+    # )
 
-    current_user.stripe_id = charge.id
-    current_user.card_brand = card_brand
-    current_user.card_exp_month = card_exp_month
-    current_user.card_exp_year = card_exp_year
-    current_user.card_last4 = card_last4
-    current_user.save!
+    # current_user.stripe_id = charge.id
+    # current_user.card_brand = card_brand
+    # current_user.card_exp_month = card_exp_month
+    # current_user.card_exp_year = card_exp_year
+    # current_user.card_last4 = card_last4
+    # current_user.save!
 
     respond_to do |format|
       if @instrument.save
@@ -57,9 +58,9 @@ class InstrumentsController < ApplicationController
       end
     end
 
-    rescue Stripe::CardError => e
-      flash.alert = e.message
-      render action: :new   
+    # rescue Stripe::CardError => e
+    #   flash.alert = e.message
+    #   render action: :new   
   end
 
   def update

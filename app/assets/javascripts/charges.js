@@ -32,6 +32,7 @@ document.addEventListener('turbolink:load', function() {
 			displayError.textcontent = "";
 		}
 	});
+	
 	const form = document.getElementById('new_instrument');
 	form.addEventListener('submit', async (event) => {
 		event.preventDefault();
