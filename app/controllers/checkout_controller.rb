@@ -2,15 +2,15 @@ require 'stripe'
 class CheckoutController < ApplicationController
 
 	def create
-		product = Product.find(params[:id])
+		instrument = Instrument.find(params[:id])
 		@session = Stripe::Checkout::Session.create({
 			customer: current_user.stripe_customer_id,
 			payment_method_types: ['card'],
 			line_items: [{
-				    # name: product.name,
-					# amount: product.price,
-					# currency: "inr",
-					price: product.stripe_price_id,
+				    name: instrument.title,
+					amount: instrument.price,
+					currency: "inr",
+					# price: instrument.stripe_price_id,
 					quantity: 1
 				}],
 			mode: 'payment',

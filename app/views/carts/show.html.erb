@@ -7,9 +7,9 @@
   <%= link_to 'Keep Shopping', instruments_path, class: 'button is-warning' %>
 </div>
 
-<!-- <div class="buy-now pv1 mt4 has-text-right">
-<%#  <%= link_to 'Buy Now', new_charge_path, class: 'button is-success' %>
-</div> -->
+<div class="buy-now pv1 mt4 has-text-right">
+  <%= link_to 'Buy Now', new_charge_path, class: 'button is-success' %>
+</div> 
 <hr />
 <section class="section">
   <%= render(@cart.line_items) %>

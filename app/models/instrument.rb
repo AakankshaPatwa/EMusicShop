@@ -15,9 +15,9 @@ class Instrument < ApplicationRecord
     FINISH = %w{ Black White Navy Blue Red Clear Satin Yellow Seafoam }
     CONDITION = %w{ New Excellent Mint Used Fair Poor }
 
-    def to_s
-    	title
-    end
+    # def to_s
+    # 	title
+    # end
 
     private
 

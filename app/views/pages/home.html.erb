@@ -1,3 +1,4 @@
+<section id = "about" class = "py-5">
 <div class="jumbotron">
   <h1 style="text-align: center;">Chatter</h1>
   <div class="well" id="chatbox" style="height:250px; border: solid 1px #222222; overflow-y:scroll ;">
@@ -9,10 +10,10 @@
   
   <% if current_user %>
   <%= form_with model: @message do |f| %>
-   <div class="input-group mb-3">
+   <div class="input-group mb-3 py-1">
    	<%= f.text_field :body, placeholder: "Say something...", class: 'form-control' %>
-   	 <div class="input-group-append">
-   	 	<%= f.submit "Send", class: "btn btn-secondary" %>
+   	 <div class="input-group-append ">
+   	 	<%= f.submit "Send", class: "btn btn-secondary " %>
    	 </div>
    </div>
   <% end %>
@@ -22,3 +23,4 @@
   </p>
   <% end %>
 </div>
+</section>
