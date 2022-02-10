@@ -1,3 +1,4 @@
+require 'stripe'
 class CheckoutController < ApplicationController
 
 	def create
