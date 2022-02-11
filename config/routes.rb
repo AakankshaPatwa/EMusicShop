@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   get 'pages/home'
   get 'messages/create'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

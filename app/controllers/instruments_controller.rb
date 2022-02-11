@@ -33,7 +33,7 @@ class InstrumentsController < ApplicationController
 
     # charge = Stripe::Charge.create(
     #   :amount => 30000,
-    #   :currency => "usd",
+    #   :currency => "inr",
     #   :description => instrument_brand,
     #   :statement_descriptor => instrument_title,
     #   :source => token
