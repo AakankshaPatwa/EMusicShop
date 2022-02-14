@@ -2,50 +2,48 @@
 
 <p>
   <strong>Firstname:</strong>
-  <%= @order.firstname %>
+  <%= @checkout.firstname %>
 </p>
 
 <p>
   <strong>Lastname:</strong>
-  <%= @order.lastname %>
+  <%= @checkout.lastname %>
 </p>
 
 <p>
   <strong>Email:</strong>
-  <%= @order.email %>
+  <%= @checkout.email %>
 </p>
 
 <p>
   <strong>Contact:</strong>
-  <%= @order.contact %>
+  <%= @checkout.contact %>
 </p>
 
 <p>
   <strong>Address1:</strong>
-  <%= @order.address1 %>
+  <%= @checkout.address1 %>
 </p>
 
 <p>
   <strong>Address2:</strong>
-  <%= @order.address2 %>
+  <%= @checkout.address2 %>
 </p>
 
 <p>
   <strong>City:</strong>
-  <%= @order.city %>
+  <%= @checkout.city %>
 </p>
 
 <p>
   <strong>State:</strong>
-  <%= @order.state %>
+  <%= @checkout.state %>
 </p>
 
 <p>
   <strong>Pincode:</strong>
-  <%= @order.pincode %>
+  <%= @checkout.pincode %>
 </p>
 
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
-
+<%= link_to 'Edit', edit_checkout_path(@checkout) %> |
+<%= link_to 'Back', checkouts_path %>

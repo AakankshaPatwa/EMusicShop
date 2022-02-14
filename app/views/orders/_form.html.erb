@@ -1,19 +1,19 @@
 
 <div class="container">
-    <div class="py-5 text-left">
+    <!-- <div class="py-5 text-left">
         <h2>Order Confirmation</h2>
     </div>
     <div class="row">
      
       <section class="section">
-       <%= render(@cart.line_items) %>
+ <%#      <%= render(@cart.line_items) %>
        <div class="column total has-text-right">
          <h4 class="title is-4">
            <span class="f5 has-text-grey">Total:</span> <%= number_to_currency(@cart.total_price) %>
          </h4>
        </div>
      </section>
-
+ -->
 
        <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Billing address</h4>
@@ -93,11 +93,26 @@
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="same-address">
                     <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-                </div>           
+                </div>   
+
+                <div class="py-5 text-left">
+                  <h2>Order Confirmation</h2>
+                </div>
+                <div class="row">
+
+                  <section class="section">
+                   <%= render(@cart.line_items) %>
+                   <div class="column total has-text-right">
+                     <h4 class="title is-4">
+                       <span class="f5 has-text-grey">Total:</span> <%= number_to_currency(@cart.total_price) %>
+                     </h4>
+                   </div>
+                 </section>
+        
 
                 <hr class="mb-4">
-                <%#<%= link_to 'Place Order', new_order_path, class:'button is-primary' %>
-                 <button class="btn btn-primary btn-lg btn-block" type="submit">Place Order</button> 
+                <%= link_to 'Place Order', orders_path, class:'button is-primary' %>
+                 <!-- <button class="btn btn-primary btn-lg btn-block" type="submit">Place Order</button>  -->
             </form>
         </div>
     </div>
