@@ -25,7 +25,7 @@ class CheckoutsController < ApplicationController
 
     respond_to do |format|
       if @checkout.save
-        format.html { redirect_to checkout_url(@checkout), notice: "Checkout was successfully created." }
+        format.html { redirect_to checkout_url(@checkout), notice: "Your Order was successfully created" }
         format.json { render :show, status: :created, location: @checkout }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class CheckoutsController < ApplicationController
   def update
     respond_to do |format|
       if @checkout.update(checkout_params)
-        format.html { redirect_to checkout_url(@checkout), notice: "Checkout was successfully updated." }
+        format.html { redirect_to checkout_url(@checkout), notice: "Your Order was successfully updated." }
         format.json { render :show, status: :ok, location: @checkout }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class CheckoutsController < ApplicationController
     @checkout.destroy
 
     respond_to do |format|
-      format.html { redirect_to checkouts_url, notice: "Checkout was successfully destroyed." }
+      format.html { redirect_to checkouts_url, notice: "Your Order was successfully destroyed." }
       format.json { head :no_content }
     end
   end

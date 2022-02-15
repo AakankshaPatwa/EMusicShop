@@ -2,9 +2,10 @@ class ChargesController < ApplicationController
  def create
   # Amount in cents
   @amount = 500
-  
+  Stripe.api_key = Rails.application.credentials[:stripe][:secret]
+
   customer = Stripe::Customer.create({
-    email: params[:stripeEmail],
+     email: params[:stripeEmail],
     source: params[:stripeToken],
   })
  
@@ -15,10 +16,10 @@ class ChargesController < ApplicationController
     currency: 'inr',
   })
 
-rescue Stripe::CardError => e
-  flash[:error] = e.message
-  redirect_to new_charge_path
-end
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to new_charge_path
+  end
 end
   # def create
   #   instrument = Instrument.find(params[:id])
