@@ -1,3 +1,4 @@
+
 document.addEventListener('turbolink:load', function() {
 	const public_key = document.querySelector('meta[name="stripe-public-key]').content;
 	const stripe = Stripe(public_key);

@@ -2,14 +2,37 @@
 
 <%#<%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%#<%= link_to 'Back', carts_path %> -->
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <div class="keep-shopping pv1 mt4 has-text-right">
   <%= link_to 'Keep Shopping', instruments_path, class: 'button is-warning' %>
 </div>
 
+<!-- <script src="https://js.stripe.com/v3/"></script> -->
+
+<!-- <div class="container">
+  <div class='row'>
+    <form action="/charge" method="post" id="payment-form">
+      <div class="form-row">
+        <label for="card-element">
+          Credit or debit card
+        </label>
+        <div id="card-element">
+           A Stripe Element will be inserted here. -->
+       <!--  < --><!-- /div> --> 
+
+        <!-- Used to display Element errors. -->
+   <!--      <div id="card-errors" role="alert"></div>
+      </div>
+
+      <button>Submit Payment</button>
+    </form>
+  </div> -->
+<!-- </div> --> 
+
 <div class="buy-now pv1 mt4 has-text-right">
   <%= link_to 'Buy Now', new_charge_path, class: 'button is-success' %>
-</div>  
+</div> 
+
 
 <hr />
 <section class="section">
@@ -32,3 +55,51 @@
   <%= link_to 'Checkout', new_checkout_path, class: 'button is-info' %>
 </div> 
 </section>
+
+
+<!-- <script>
+var stripe = Stripe('pk_test_51KRSa9SBsGsaYp6jRDV3mfVAF2oyjXWHNmxbjvPRnXzWxB4tHfJGBVhNp9oqQjQrX2kVm8PBauuGXY4wXKCC3B2u00CMFEosMl');
+var elements = stripe.elements();
+var style = {
+  base: {
+    // Add your base input styles here. For example:
+    fontSize: '16px',
+    color: '#32325d',
+  },
+};
+
+// Create an instance of the card Element.
+var card = elements.create('card', {style: style});
+
+// Add an instance of the card Element into the `card-element` <div>.
+card.mount('#card-element');
+
+var form = document.getElementById('payment-form');
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  stripe.createToken(card).then(function(result) {
+    if (result.error) {
+      // Inform the customer that there was an error.
+      var errorElement = document.getElementById('card-errors');
+      errorElement.textContent = result.error.message;
+    } else {
+      // Send the token to your server.
+      stripeTokenHandler(result.token);
+    }
+  });
+});
+
+function stripeTokenHandler(token) {
+  // Insert the token ID into the form so it gets submitted to the server
+  var form = document.getElementById('payment-form');
+  var hiddenInput = document.createElement('input');
+  hiddenInput.setAttribute('type', 'hidden');
+  hiddenInput.setAttribute('name', 'stripeToken');
+  hiddenInput.setAttribute('value', token.id);
+  form.appendChild(hiddenInput);
+
+  // Submit the form
+  form.submit();
+}
+</script> -->

@@ -1,25 +1,23 @@
 class CheckoutsController < ApplicationController
   before_action :set_checkout, only: %i[ show edit update destroy ]
-
-  # GET /checkouts or /checkouts.json
+  before_action :authenticate_user!
+  
   def index
     @checkouts = Checkout.all
   end
 
-  # GET /checkouts/1 or /checkouts/1.json
   def show
   end
 
-  # GET /checkouts/new
+  
   def new
     @checkout = Checkout.new
   end
 
-  # GET /checkouts/1/edit
   def edit
   end
 
-  # POST /checkouts or /checkouts.json
+  
   def create
     @checkout = Checkout.new(checkout_params)
 
@@ -34,7 +32,7 @@ class CheckoutsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /checkouts/1 or /checkouts/1.json
+  
   def update
     respond_to do |format|
       if @checkout.update(checkout_params)
@@ -47,7 +45,7 @@ class CheckoutsController < ApplicationController
     end
   end
 
-  # DELETE /checkouts/1 or /checkouts/1.json
+ 
   def destroy
     @checkout.destroy
 
@@ -58,12 +56,11 @@ class CheckoutsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+   
     def set_checkout
       @checkout = Checkout.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def checkout_params
       params.require(:checkout).permit(:firstname, :lastname, :email, :contact, :address1, :address2, :city, :state, :pincode)
     end

@@ -23,7 +23,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -50,6 +50,8 @@ gem 'simple_form'
 gem 'carrierwave', '~> 2.2.2'
 gem 'gravatar_image_tag'
 
+gem 'webpacker'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug' #, platforms: [:mri, :mingw, :x64_mingw]
@@ -57,7 +59,7 @@ group :development, :test do
   gem 'guard'
   gem 'guard-livereload'
   gem 'dotenv-rails'
-  gem 'pay'
+
 end
 
 group :development do
@@ -83,3 +85,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'stripe'
+
+gem 'pry'
+

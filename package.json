@@ -1,5 +1,12 @@
 {
   "name": "emusic",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "stimulus": "^3.0.1",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3"
+  }
 }
