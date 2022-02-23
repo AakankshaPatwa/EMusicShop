@@ -88,3 +88,8 @@ gem 'stripe'
 
 gem 'pry'
 
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'elasticsearch-transport'
+
+

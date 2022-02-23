@@ -9,6 +9,15 @@ class InstrumentsController < ApplicationController
   def show
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to(instruments_path, alert: "Empty field!") and return
+    else
+     keyword = params[:search]
+     @instruments = Instrument.where("lower(title) LIKE ?", "%#{keyword}%")
+    end
+  end
+
   def new
     @instrument = current_user.instruments.build
   end
@@ -58,9 +67,9 @@ class InstrumentsController < ApplicationController
       end
     end
 
-    # rescue Stripe::CardError => e
-    #   flash.alert = e.message
-    #   render action: :new   
+  rescue Stripe::CardError => e
+    flash.alert = e.message
+    render action: :new   
   end
 
   def update

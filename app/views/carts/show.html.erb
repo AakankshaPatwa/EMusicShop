@@ -33,6 +33,9 @@
   <%= link_to 'Buy Now', new_charge_path, class: 'button is-success' %>
 </div> 
 
+<div>
+  <%= render 'payment' %>
+</div> 
 
 <hr />
 <section class="section">
@@ -48,9 +51,7 @@
       </h4>
     </div>
   </div>
-  <!-- <div>
-  <%#  <%= render 'payment' %>
-  </div> -->
+
 <div class="buy-now pv1 mt4 has-text-right">
   <%= link_to 'Checkout', new_checkout_path, class: 'button is-info' %>
 </div> 

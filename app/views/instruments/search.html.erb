@@ -1,0 +1,19 @@
+<body class="container" style="background: #f2f2f2"> 
+  <h1 class="my-3" style="color: #6699ff;"><b>Searching result</b></h1>
+  <div name="instruments">
+   
+    <% @instruments.each do |instrument| %>
+    
+    <div class="card" style="width: 18rem;">
+     <%= image_tag instrument.image if instrument.image.attached? %>
+     <div class="card-body">
+       <h5 class="card-title"><%= link_to instrument.title, @instrument_path %></h5>                     
+
+       <p><b><%= instrument.price %>$</b></p>
+       
+     </div>
+   </div>
+   <% end %>
+
+ </div>
+</body>

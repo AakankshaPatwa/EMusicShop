@@ -3,70 +3,8 @@
 <!-- <div>
  <%# <%= render 'payment' %>
 </div> 
- -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://js.stripe.com/v3/"></script>
-<form action="/charge" method="post" id="payment-form">
-  <div class="form-row">
-    <label for="card-element">
-      Credit or debit card
-    </label>
-    <div id="card-element"> -->
-      <!-- A Stripe Element will be inserted here. -->
-    <!-- </div>
- -->
-    <!-- Used to display Element errors. -->
-    <!-- <div id="card-errors" role="alert"></div>
-  </div>
+-->
 
-  <button>Submit Payment</button>
-</form>
-<script> -->
-<%#var stripe = Stripe('pk_test_51KRSa9SBsGsaYp6jRDV3mfVAF2oyjXWHNmxbjvPRnXzWxB4tHfJGBVhNp9oqQjQrX2kVm8PBauuGXY4wXKCC3B2u00CMFEosMl');
-var elements = stripe.elements();
-var style = {
-  base: {
-    // Add your base input styles here. For example:
-    fontSize: '16px',
-    color: '#32325d',
-  },
-};
-
-// Create an instance of the card Element.
-var card = elements.create('card', {style: style});
-
-// Add an instance of the card Element into the `card-element` <div>.
-card.mount('#card-element');
-
-var form = document.getElementById('payment-form');
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  stripe.createToken(card).then(function(result) {
-    if (result.error) {
-      // Inform the customer that there was an error.
-      var errorElement = document.getElementById('card-errors');
-      errorElement.textContent = result.error.message;
-    } else {
-      // Send the token to your server.
-      stripeTokenHandler(result.token);
-    }
-  });
-});
-
-function stripeTokenHandler(token) {
-  // Insert the token ID into the form so it gets submitted to the server
-  var form = document.getElementById('payment-form');
-  var hiddenInput = document.createElement('input');
-  hiddenInput.setAttribute('type', 'hidden');
-  hiddenInput.setAttribute('name', 'stripeToken');
-  hiddenInput.setAttribute('value', token.id);
-  form.appendChild(hiddenInput);
-
-  // Submit the form
-  form.submit();
-}
-</script> %>
 <section class="hero is-info">
   <div class="hero-body">
     <div class="container">
@@ -93,48 +31,48 @@ function stripeTokenHandler(token) {
   </head>
   <body>
     
-  <!-- collection -->
+    <!-- collection -->
     <section id = "collection" class = "py-2">
-        <div class = "container">
-            <div class = "title text-center">
-                <h2 class = "position-relative d-inline-block">New Collection</h2>
-            </div>
+      <div class = "container">
+        <div class = "title text-center">
+          <h2 class = "position-relative d-inline-block">New Collection</h2>
         </div>
+      </div>
     </section>
 
   </body>
-</html>
+  </html>
 
-<div class="instrument-index-grid pt4">
-  <% @instruments.each do |instrument| %> 
+  <div class="instrument-index-grid pt4">
+    <% @instruments.each do |instrument| %> 
     <div class="instrument border-light">
       <div class="instrument-thumb">
-          
-      <%= image_tag instrument.image if instrument.image.attached? %>
+        
+        <%= image_tag instrument.image if instrument.image.attached? %>
 
-    <%#  <%= link_to image_tag(instrument.image_url(:thumb)), instrument %>
-      
-      <% if instrument.condition? %>
+        <%#  <%= link_to image_tag(instrument.image_url(:thumb)), instrument %>
+        
+        <% if instrument.condition? %>
         <div class="condition">
           <span class="tag is-dark"><%= instrument.condition %></span>
         </div>
-      <% end %>
+        <% end %>
       </div>
 
-    <div class="pa3">
+      <div class="pa3">
 
-      <h3 class="fw7 f4 title"><%= link_to instrument.title, instrument %></h3>
+        <h3 class="fw7 f4 title"><%= link_to instrument.title, instrument %></h3>
 
-      <p class="has-text-gray fg pt1">Sold by <%= instrument.user.name %></p>
+        <p class="has-text-gray fg pt1">Sold by <%= instrument.user.name %></p>
 
-      <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(instrument.price) %></p>
+        <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(instrument.price) %></p>
 
-      <% if instrument_author(instrument) %>
-         <%= link_to 'Edit', edit_instrument_path(instrument), class: "button is-small" %>
-         <%= link_to 'Delete', instrument, method: :delete, data: { confirm: "Are you sure ?" }, class: "button is-small" %>
-      <% end %>
+        <% if instrument_author(instrument) %>
+        <%= link_to 'Edit', edit_instrument_path(instrument), class: "button is-small" %>
+        <%= link_to 'Delete', instrument, method: :delete, data: { confirm: "Are you sure ?" }, class: "button is-small" %>
+        <% end %>
 
+      </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
