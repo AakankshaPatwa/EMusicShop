@@ -1,9 +1,9 @@
-require 'elasticsearch/model'
-require 'elasticsearch/transport'
+# require 'elasticsearch/model'
+# require 'elasticsearch/transport'
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
+  # include Elasticsearch::Model
+  # include Elasticsearch::Model::Callbacks
 
 end

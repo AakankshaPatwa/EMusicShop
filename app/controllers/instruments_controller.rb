@@ -9,13 +9,16 @@ class InstrumentsController < ApplicationController
   def show
   end
 
+  # def search
+  #   if params[:search].blank?
+  #     redirect_to(instruments_path, alert: "Empty field!") and return
+  #   else
+  #    keyword = params[:search]
+  #    @instruments = Instrument.where("lower(title) LIKE ?", "%#{keyword}%")
+  #   end
+  # end
   def search
-    if params[:search].blank?
-      redirect_to(instruments_path, alert: "Empty field!") and return
-    else
-     keyword = params[:search]
-     @instruments = Instrument.where("lower(title) LIKE ?", "%#{keyword}%")
-    end
+    @instruments = Instrument.where("lower(title) LIKE ?", "#{params[:search]}%" )
   end
 
   def new
@@ -31,76 +34,61 @@ class InstrumentsController < ApplicationController
   def create
     @instrument = current_user.instruments.build(instrument_params)
 
-    token = params[:stripeToken]
-    instrument_brand = params[:brand]
-    instrument_title = params[:title]
-    #error
-    card_brand = params[:user][:card_brand]
-    card_exp_month = params[:user][:card_exp_month]
-    card_exp_year = params[:user][:card_exp_year]
-    card_last4 = params[:user][:card_last4]
+    # token = params[:stripeToken]
+    # instrument_brand = params[:brand]
+    # instrument_title = params[:title]
+    # #error
+    # card_brand = params[:user][:card_brand]
+    # card_exp_month = params[:user][:card_exp_month]
+    # card_exp_year = params[:user][:card_exp_year]
+    # card_last4 = params[:user][:card_last4]
 
-    charge = Stripe::Charge.create(
-      :amount => 30000,
-      :currency => "inr",
-      :description => instrument_brand,
-      :statement_descriptor => instrument_title,
-      :source => token
-    )
+    # charge = Stripe::Charge.create(
+    #   :amount => 30000,
+    #   :currency => "inr",
+    #   :description => instrument_brand,
+    #   :statement_descriptor => instrument_title,
+    #   :source => token
+    # )
+    # current_user.stripe_id = charge.id
+    # current_user.card_brand = card_brand
+    # current_user.card_exp_month = card_exp_month
+    # current_user.card_exp_year = card_exp_year
+    # current_user.card_last4 = card_last4
+    # current_user.save!
 
-    current_user.stripe_id = charge.id
-    current_user.card_brand = card_brand
-    current_user.card_exp_month = card_exp_month
-    current_user.card_exp_year = card_exp_year
-    current_user.card_last4 = card_last4
-    current_user.save!
-
-    respond_to do |format|
-      if @instrument.save
-        InstrumentMailer.with(user: current_user, instrument: @instrument).instrument_created.deliver_later
-
-        format.html { redirect_to instrument_url(@instrument), notice: "Instrument was successfully created." }
-        format.json { render :show, status: :created, location: @instrument }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @instrument.errors, status: :unprocessable_entity }
-      end
+    if @instrument.save
+      InstrumentMailer.with(user: current_user, instrument: @instrument).instrument_created.deliver_later
+      redirect_to @instrument, notice: "Instrument was created successfully." 
+    else
+      render 'new'
     end
 
-  rescue Stripe::CardError => e
-    flash.alert = e.message
-    render action: :new   
+  # rescue Stripe::CardError => e
+  #   flash.alert = e.message
+  #   render action: :new  
   end
 
   def update
-    respond_to do |format|
-      if @instrument.update(instrument_params)
-        format.html { redirect_to instrument_url(@instrument), notice: "Instrument was successfully updated." }
-        format.json { render :show, status: :ok, location: @instrument }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @instrument.errors, status: :unprocessable_entity }
-      end
+    if @instrument.update(instrument_params)
+      redirect_to @instrument, notice: "Instrument was updated successfully." 
+    else
+      render 'edit'
     end
   end
-
+  
   def destroy
     @instrument.destroy
-
-    respond_to do |format|
-      format.html { redirect_to instruments_url, notice: "Instrument was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to instruments_path, notice: "Instrument was destroy successfully."   
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_instrument
-      @instrument = Instrument.find(params[:id])
-    end
+  def set_instrument
+    @instrument = Instrument.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def instrument_params
-      params.require(:instrument).permit(:brand, :model, :description, :condition, :finish, :title, :price, :image)
-    end
+  def instrument_params
+    params.require(:instrument).permit(:brand, :model, :description, :condition, :finish, :title, :price, :image)
+  end
 end
+

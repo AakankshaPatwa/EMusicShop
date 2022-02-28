@@ -1,64 +1,65 @@
 
 <%= simple_form_for(@checkout) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  
-  <section class="section">
-      <%= render(@cart.line_items) %>
-       <div class="column total has-text-right">
-         <h4 class="title is-4">
-           <span class="f5 has-text-grey">Total:</span> <%= number_to_currency(@cart.total_price) %>
-         </h4>
-       </div>
-  </section>
+
+<section class="section">
+  <%= render(@cart.line_items) %>
+  <div class="column total has-text-right">
+   <h4 class="title is-4">
+     <span class="f5 has-text-grey">Total:</span> <%= number_to_currency(@cart.total_price) %>
+   </h4>
+ </div>
+</section>
 
 <%#<%= button_to 'Return TO HomePage', @cart, method: :delete, data: { confirm: "Are you sure? " }, class: "btn" %>
 
 
-  <div class="form-inputs py-2 ">
-    <h1>Enter details for Shipping Order</h1>
-    <div class="field">
-      <%= f.label :firstname %><br />
-      <%= f.text_field :firstname, autofocus: true %>
-    </div>
-    <div class="field">
-      <%= f.label :lastname %><br />
-      <%= f.text_field :lastname, autofocus: true %>
-    </div>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.input_field :email, autofocus: true %>
-    </div>
-    <div class="field">
-      <%= f.label :contact %><br />
-      <%= f.input_field :contact, autofocus: true %>
-    </div>
-    <div class="field">
-      <%= f.label :address1 %><br />
-      <%= f.input_field :address1, autofocus: true%>
-    </div>
-    <div class="field">
-      <%= f.label :address2 %><br />
-      <%= f.input_field :address2, autofocus: true%>
-    </div>
-    <div class="field">
-      <%= f.label :city %><br />
-      <%= f.input_field :city, autofocus: true%>
-    </div>
-    <div class="field">
-      <%= f.label :state %><br />
-      <%= f.input_field :state, autofocus: true%>
-    </div>
-    <div class="field">
-      <%= f.label :pincode %><br />
-      <%= f.input_field :pincode, autofocus: true%>
-    </div>
-
+<div class="form-inputs py-2 ">
+  <h1>Enter details for Shipping Order</h1>
+  <div class="field">
+    <%= f.label :firstname %><br />
+    <%= f.text_field :firstname, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :lastname %><br />
+    <%= f.text_field :lastname, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.input_field :email, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :contact %><br />
+    <%= f.input_field :contact, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :address1 %><br />
+    <%= f.input_field :address1, autofocus: true%>
+  </div>
+  <div class="field">
+    <%= f.label :address2 %><br />
+    <%= f.input_field :address2, autofocus: true%>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.input_field :city, autofocus: true%>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.input_field :state, autofocus: true%>
+  </div>
+  <div class="field">
+    <%= f.label :pincode %><br />
+    <%= f.input_field :pincode, autofocus: true%>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+</div>
+
+<div class="form-actions">
+  <%= f.button :submit %>
+ <%#  <%= button_to 'Empty Cart', @cart, method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger" %> 
+</div>
 <% end %>
 

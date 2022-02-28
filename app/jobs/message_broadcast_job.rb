@@ -20,3 +20,8 @@ class MessageBroadcastJob < ApplicationJob
     MessageController.render(partial: 'message', locals: {message: message})
   end
 end
+
+
+
+
+  

@@ -30,7 +30,7 @@
 
   </head>
   <body>
-    
+
     <!-- collection -->
     <section id = "collection" class = "py-2">
       <div class = "container">
@@ -47,7 +47,7 @@
     <% @instruments.each do |instrument| %> 
     <div class="instrument border-light">
       <div class="instrument-thumb">
-        
+
         <%= image_tag instrument.image if instrument.image.attached? %>
 
         <%#  <%= link_to image_tag(instrument.image_url(:thumb)), instrument %>
@@ -75,4 +75,4 @@
       </div>
     </div>
     <% end %>
-  </div>
+</div>
