@@ -17,8 +17,13 @@ class InstrumentsController < ApplicationController
   #    @instruments = Instrument.where("lower(title) LIKE ?", "%#{keyword}%")
   #   end
   # end
+  
   def search
-    @instruments = Instrument.where("lower(title) LIKE ?", "#{params[:search]}%" )
+    if params[:search].blank?
+      redirect_to(instruments_path, alert: "Empty field!") and return
+    else
+      @instruments = Instrument.where("lower(title) LIKE ?", "#{params[:search]}%" )
+    end
   end
 
   def new

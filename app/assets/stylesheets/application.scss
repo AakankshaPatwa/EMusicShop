@@ -2,6 +2,9 @@
 $link: #444;
 $link-hover: #222;
 
+
+@import "tether";
+
 @import "bulma";
 @import "functions";
 @import "stripe";

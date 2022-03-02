@@ -6,7 +6,8 @@ class MessageBroadcastJob < ApplicationJob
     # ActionCable.server.broadcast "chat", {
     #   message: render_message(message)
     # }
-    ActionCable.server.broadcast 'chat', message: render_message(message)
+    # ActionCable.server.broadcast 'chat', message: render_message(message)
+    ActionCable.server.broadcast("hypothetical_channel", message: message)
   end
 
   private
